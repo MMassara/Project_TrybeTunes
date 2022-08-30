@@ -15,27 +15,13 @@ class App extends React.Component {
     <p>TrybeTunes</p>
     <BrowserRouter>
       <Switch>
-        <Route exact path='/'>
-          <Login />
-        </Route>
-        <Route path='/search'>
-          <Search />
-        </Route>
-        <Route path='/album/:id'>
-          <Album />
-        </Route>
-        <Route path='/favorites'>
-          <Favorites />
-        </Route>
-        <Route exact path='/profile'>
-          <Profile />
-        </Route>
-        <Route exact path='/profile/edit'>
-          <ProfileEdit />
-        </Route>
-        <Route path='*'> 
-          <NotFound />
-        </Route>
+        <Route exact path='/' component={Login}/>
+        <Route path='/search' component={Search}/>
+        <Route path='/album/:id' component={Album}/>
+        <Route path='/favorites' component={Favorites}/>
+        <Route exact path='/profile' component={Profile}/>
+        <Route exact path='/profile/edit' component={ProfileEdit}/>
+        <Route path='*' component={NotFound}/> 
       </Switch>
     </BrowserRouter>
     </>
