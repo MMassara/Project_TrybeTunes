@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import LoadingText from '../Components/LoadingText';
+import {Link} from 'react-router-dom';
 
 class Search extends React.Component {
   state = {
@@ -58,36 +59,58 @@ class Search extends React.Component {
   };
 
   render() {
-    const { validArtist,
+    const {
+      validArtist,
       artist,
       loading,
       selectedArtist,
       afterSearch,
-      albums } = this.state;
+      albums,
+    } = this.state;
 
     const errorArtist = <span>Nenhum álbum foi encontrado</span>;
-    const message = (<h4>
-      Resultado de álbuns de:
-      {selectedArtist}
-    </h4>);
+    const message = (
+      <h4>
+        Resultado de álbuns de:{selectedArtist}
+      </h4>
+    );
 
-    const showAlbums = albums
-      .map((album) => (<div key={ album.collectionId }>
-        <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+    const showAlbums = albums.map((album) => (
+      <div key={ album.collectionId }>
+        <Link data-testid={`link-to-album-${album.collectionId}`} to='/album/${album.collectionId}'><img src={ album.artworkUrl100 } alt={ album.collectionName }  /></Link>
         {album.collectionName}
         {' '}
         {album.artistName}
-      </div>));
+      </div>
+    ));
 
     return (
       <>
         <Header />
         <div data-testid="page-search">
           <form>
-            {loading === false ? <div>
-              <label><input type="text" data-testid="search-artist-input" onChange={ this.onInputChange } value={ artist } /></label>
-              <button type="button" data-testid="search-artist-button" disabled={ validArtist } onClick={ this.onHandleClick }>Pesquisar</button>
-            </div> : <LoadingText />}
+            {loading === false ? (
+              <div>
+                <label>
+                  <input
+                    type="text"
+                    data-testid="search-artist-input"
+                    onChange={ this.onInputChange }
+                    value={ artist }
+                  />
+                </label>
+                <button
+                  type="button"
+                  data-testid="search-artist-button"
+                  disabled={ validArtist }
+                  onClick={ this.onHandleClick }
+                >
+                  Pesquisar
+                </button>
+              </div>
+            ) : (
+              <LoadingText />
+            )}
             {afterSearch === true ? message : null}
             {afterSearch === true ? showAlbums : null}
             {albums.length === 0 ? errorArtist : null}
