@@ -27,10 +27,8 @@ class Album extends React.Component {
   render() {
     const { musics, albumName, artistName, image } = this.state;
     console.log(musics)
-    const listMusics = musics.filter((element) => element.kind === 'song').map((music) => {music.trackName});
+    const listMusics = musics.filter((element) => element.kind === 'song').map((music) => <MusicCard musicName={music.trackName} previewUrl={music.previewUrl} key={music.trackId}/>);
     console.log(listMusics)
-    
-    
     return (
       <div>
         <Header />
