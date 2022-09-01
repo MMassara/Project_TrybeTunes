@@ -77,7 +77,7 @@ class Search extends React.Component {
 
     const showAlbums = albums.map((album) => (
       <div key={ album.collectionId }>
-        <Link data-testid={`link-to-album-${album.collectionId}`} to='/album/${album.collectionId}'><img src={ album.artworkUrl100 } alt={ album.collectionName }  /></Link>
+        <Link data-testid={`link-to-album-${album.collectionId}`} to={`/album/${album.collectionId}`}><img src={ album.artworkUrl100 } alt={ album.collectionName }  /></Link>
         {album.collectionName}
         {' '}
         {album.artistName}
