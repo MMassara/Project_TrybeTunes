@@ -1,8 +1,12 @@
 import React from "react";
+import { getFavoriteSongs } from "../services/favoriteSongsAPI";
+
 
 class MusicCard extends React.Component {
+
   render() {
-    const { previewUrl, musicName } = this.props;
+    const { previewUrl, musicName, trackId, onChange, favorite} = this.props;
+    
     return (
       <li>
         <section>{musicName}</section>
@@ -10,6 +14,10 @@ class MusicCard extends React.Component {
           <track kind="captions" />O seu navegador não suporta o elemento{" "}
           <code>audio</code>.
         </audio>
+        <label data-testid={`checkbox-music-${trackId}`}>Favorita
+        <input type='checkbox' onChange={onChange} data-trackid={trackId}
+        checked={favorite}></input>
+        </label>
       </li>
     );
   }
