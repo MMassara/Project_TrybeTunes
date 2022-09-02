@@ -78,7 +78,12 @@ class Search extends React.Component {
 
     const showAlbums = albums.map((album) => (
       <div key={ album.collectionId }>
-        <Link data-testid={ `link-to-album-${album.collectionId}` } to={ `/album/${album.collectionId}` }><img src={ album.artworkUrl100 } alt={ album.collectionName } /></Link>
+        <Link
+          data-testid={ `link-to-album-${album.collectionId}` }
+          to={ `/album/${album.collectionId}` }
+        >
+          <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+        </Link>
         {album.collectionName}
         {' '}
         {album.artistName}
@@ -92,12 +97,13 @@ class Search extends React.Component {
           <form>
             {loading === false ? (
               <div>
-                <label>
+                <label htmlFor="search">
                   <input
                     type="text"
                     data-testid="search-artist-input"
                     onChange={ this.onInputChange }
                     value={ artist }
+                    id="search"
                   />
                 </label>
                 <button
