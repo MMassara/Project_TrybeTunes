@@ -9,6 +9,10 @@ class Header extends React.Component {
     loading: false,
   };
 
+  componentDidMount() {
+    this.showUser();
+  }
+
   showUser = async () => {
     this.setState({
       loading: true,
@@ -19,10 +23,6 @@ class Header extends React.Component {
       loading: false,
     });
   };
-
-  componentDidMount() {
-    this.showUser();
-  }
 
   render() {
     const { name, loading } = this.state;
