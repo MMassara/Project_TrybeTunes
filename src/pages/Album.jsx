@@ -41,6 +41,7 @@ class Album extends React.Component {
     const { musics, favoriteSongs } = this.state;
     const musicId = target.dataset.trackid;
     const music = musics.find((element) => element.trackId == musicId);
+    const removeSongs = favoriteSongs.filter((element) => element != Number(musicId));
     this.setState({
       loading: true,
     });
@@ -55,7 +56,7 @@ class Album extends React.Component {
       await removeSong(music);
       this.setState({
         loading: false,
-        favoriteSongs: this.state.favoriteSongs.filter((element) => element != Number(musicId)),
+        favoriteSongs: removeSongs,
       });
     }
   };
@@ -81,7 +82,7 @@ class Album extends React.Component {
             loading === true ? <LoadingText />
               : <>
                 <div>
-                  <img src={ image } />
+                  <img src={ image } alt={artistName}/>
                   <section data-testid="artist-name">{artistName}</section>
                   <section data-testid="album-name">
                     {albumName}

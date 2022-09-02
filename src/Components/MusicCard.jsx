@@ -1,5 +1,4 @@
 import React from 'react';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
   render() {
