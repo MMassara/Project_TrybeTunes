@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import LoadingText from '../Components/LoadingText';
-import {Link} from 'react-router-dom';
 
 class Search extends React.Component {
   state = {
@@ -71,13 +71,14 @@ class Search extends React.Component {
     const errorArtist = <span>Nenhum álbum foi encontrado</span>;
     const message = (
       <h4>
-        Resultado de álbuns de:{selectedArtist}
+        Resultado de álbuns de:
+        {selectedArtist}
       </h4>
     );
 
     const showAlbums = albums.map((album) => (
       <div key={ album.collectionId }>
-        <Link data-testid={`link-to-album-${album.collectionId}`} to={`/album/${album.collectionId}`}><img src={ album.artworkUrl100 } alt={ album.collectionName }  /></Link>
+        <Link data-testid={ `link-to-album-${album.collectionId}` } to={ `/album/${album.collectionId}` }><img src={ album.artworkUrl100 } alt={ album.collectionName } /></Link>
         {album.collectionName}
         {' '}
         {album.artistName}
