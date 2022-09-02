@@ -30,12 +30,12 @@ class MusicCard extends React.Component {
   }
 }
 
-MusicCard.propTypes = {
-  previewUrl: PropTypes.string.isRequired,
-  musicName: PropTypes.string.isRequired,
-  trackId: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
-  favorite: PropTypes.bool.isRequired,
-};
+// MusicCard.propTypes = {
+//   previewUrl: PropTypes.string.isRequired,
+//   musicName: PropTypes.string.isRequired,
+//   trackId: PropTypes.number.isRequired,
+//   onChange: PropTypes.func.isRequired,
+//   favorite: PropTypes.bool.isRequired,
+// };
 
 export default MusicCard;
