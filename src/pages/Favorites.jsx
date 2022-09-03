@@ -26,22 +26,24 @@ class Favorites extends React.Component {
     this.setState({
       loading:false
     })
+
   }
 
   favoritesSongs = async ({ target }) => {
     const {  favoriteSongs } = this.state;
     const musicId = target.dataset.trackid;
     const music = favoriteSongs.find((element) => element.trackId == musicId);
-    const removeSongs = favoriteSongs.filter((element) => element != Number(musicId));
     
     this.setState({
       loading: true,
     });
     
     await removeSong(music)
+   
+    const newList = await getFavoriteSongs();
 
     this.setState({
-      favoriteSongs: removeSongs, 
+      favoriteSongs: newList, 
       loading:false,
     })
 
