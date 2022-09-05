@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import LoadingText from '../Components/LoadingText';
+
+const minNumber = 3;
 
 class Login extends React.Component {
   state = {
@@ -14,7 +17,7 @@ class Login extends React.Component {
     const { type } = target;
     const value = type === 'checkbox' ? target.checked : target.value;
 
-    if (value.length >= 3) {
+    if (value.length >= minNumber) {
       this.setState({
         name: value,
         valideName: false,
@@ -54,11 +57,12 @@ class Login extends React.Component {
     return (
       <div data-testid="page-login">
         <form>
-          <label>
+          <label htmlFor="login">
             <input
               type="text"
               data-testid="login-name-input"
               onChange={ this.onInputChange }
+              id="login"
             />
           </label>
           <button
@@ -75,5 +79,9 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.objectOf(PropTypes.string).isRequired,
+};
 
 export default Login;

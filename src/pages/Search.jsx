@@ -91,39 +91,35 @@ class Search extends React.Component {
     ));
 
     return (
-      <>
+      <div data-testid="page-search">
         <Header />
-        <div data-testid="page-search">
-          <form>
-            {loading === false ? (
-              <div>
-                <label htmlFor="search">
-                  <input
-                    type="text"
-                    data-testid="search-artist-input"
-                    onChange={ this.onInputChange }
-                    value={ artist }
-                    id="search"
-                  />
-                </label>
-                <button
-                  type="button"
-                  data-testid="search-artist-button"
-                  disabled={ validArtist }
-                  onClick={ this.onHandleClick }
-                >
-                  Pesquisar
-                </button>
-              </div>
-            ) : (
-              <LoadingText />
-            )}
-            {afterSearch === true ? message : null}
-            {afterSearch === true ? showAlbums : null}
-            {albums.length === 0 ? errorArtist : null}
-          </form>
-        </div>
-      </>
+        <form>
+          <div>
+            <label htmlFor="search">
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                onChange={ this.onInputChange }
+                value={ artist }
+                id="search"
+              />
+            </label>
+            <button
+              type="button"
+              data-testid="search-artist-button"
+              disabled={ validArtist }
+              onClick={ this.onHandleClick }
+            >
+              Pesquisar
+            </button>
+          </div>
+          {loading && <LoadingText />}
+          {selectedArtist}
+          {afterSearch === true ? message : null}
+          {afterSearch === true ? showAlbums : null}
+          {albums.length === 0 ? errorArtist : null}
+        </form>
+      </div>
     );
   }
 }
