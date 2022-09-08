@@ -72,6 +72,7 @@ class Search extends React.Component {
     const message = (
       <h4>
         Resultado de álbuns de:
+        {' '}
         {selectedArtist}
       </h4>
     );
@@ -114,7 +115,6 @@ class Search extends React.Component {
             </button>
           </div>
           {loading && <LoadingText />}
-          {selectedArtist}
           {afterSearch === true ? message : null}
           {afterSearch === true ? showAlbums : null}
           {albums.length === 0 ? errorArtist : null}
