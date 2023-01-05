@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #417D7A;
 }
 
 code {
@@ -16,4 +17,63 @@ code {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  color: #EDE6DB;
+}
+
+.mainTitle {
+  background-color: #1A3C40;
+ border: 1px solid #2D4263;
+}
+
+h3 {
+  color: #EDE6DB;
+}
+
+.loginItems {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
+#login {
+  width: 230px;
+  height: 35px;
+ 
+}
+
+.buttonLogin {
+  width: 250px;
+  height: 40px;
+  
+}
+
+.loadingText {
+  text-align: center;
+  font-size: large;
+}
+
+.headerItems {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #1D5C63;
+}
+
+.navButtons {
+  width: 150px;
+  height: 40px;
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #DFD8CA;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #1A132F;
 }

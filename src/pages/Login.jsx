@@ -56,12 +56,13 @@ class Login extends React.Component {
     const { valideName, saving } = this.state;
     return (
       <div data-testid="page-login">
-        <form>
+        <form className="loginItems">
           <label htmlFor="login">
             <input
               type="text"
               data-testid="login-name-input"
               onChange={ this.onInputChange }
+              placeholder="Digite seu usuário"
               id="login"
             />
           </label>
@@ -70,6 +71,7 @@ class Login extends React.Component {
             data-testid="login-submit-button"
             disabled={ valideName }
             onClick={ this.handleClick }
+            className="buttonLogin"
           >
             Entrar
           </button>
