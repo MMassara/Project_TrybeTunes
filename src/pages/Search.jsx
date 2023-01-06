@@ -78,16 +78,22 @@ class Search extends React.Component {
     );
 
     const showAlbums = albums.map((album) => (
-      <div key={ album.collectionId }>
+      <div key={ album.collectionId } className="eachAlbum">
         <Link
           data-testid={ `link-to-album-${album.collectionId}` }
           to={ `/album/${album.collectionId}` }
         >
-          <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+          <img
+            src={ album.artworkUrl100 }
+            alt={ album.collectionName }
+            className="centerImage"
+          />
+          <div className="centerAlbum">
+            {album.collectionName}
+            {' - '}
+            {album.artistName}
+          </div>
         </Link>
-        {album.collectionName}
-        {' '}
-        {album.artistName}
       </div>
     ));
 
@@ -95,7 +101,7 @@ class Search extends React.Component {
       <div data-testid="page-search">
         <Header />
         <form>
-          <div>
+          <div className="searchForm">
             <label htmlFor="search">
               <input
                 type="text"
@@ -103,6 +109,7 @@ class Search extends React.Component {
                 onChange={ this.onInputChange }
                 value={ artist }
                 id="search"
+                className="searchInput"
               />
             </label>
             <button
@@ -110,14 +117,17 @@ class Search extends React.Component {
               data-testid="search-artist-button"
               disabled={ validArtist }
               onClick={ this.onHandleClick }
+              className="searchButton"
             >
               Pesquisar
             </button>
           </div>
           {loading && <LoadingText />}
           {afterSearch === true ? message : null}
-          {afterSearch === true ? showAlbums : null}
-          {albums.length === 0 ? errorArtist : null}
+          <div className="allAlbums">
+            {afterSearch === true ? showAlbums : null}
+            {albums.length === 0 ? errorArtist : null}
+          </div>
         </form>
       </div>
     );

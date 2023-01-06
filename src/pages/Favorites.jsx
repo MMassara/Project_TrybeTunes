@@ -53,8 +53,8 @@ class Favorites extends React.Component {
   render() {
     const { loading, favoriteSongs, isFavorite } = this.state;
     const listFavorites = favoriteSongs.map((song, index) => (
-      <section key={ index + 1 }>
-        <img src={ song.artworkUrl30 } alt={ song.artistName } key={ index } />
+      <div key={ index + 1 }>
+        {/* <img src={ song.artworkUrl30 } alt={ song.artistName } key={ index } /> */}
         <MusicCard
           musicName={ song.trackName }
           previewUrl={ song.previewUrl }
@@ -63,14 +63,16 @@ class Favorites extends React.Component {
           onChange={ this.favoritesSongs }
           favorite={ isFavorite }
         />
-      </section>
+      </div>
     ));
 
     return (
       <div>
         <Header />
         <div data-testid="page-favorites">
-          {loading === true ? <LoadingText /> : <ul>{listFavorites}</ul>}
+          {loading === true
+            ? <LoadingText />
+            : <div className="favoriteSongs">{listFavorites}</div> }
         </div>
       </div>
     );

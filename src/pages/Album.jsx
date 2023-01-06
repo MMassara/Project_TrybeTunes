@@ -92,12 +92,23 @@ class Album extends React.Component {
             <LoadingText />
           ) : (
             <>
-              <div>
-                <img src={ image } alt={ artistName } />
-                <section data-testid="artist-name">{artistName}</section>
-                <section data-testid="album-name">{albumName}</section>
+              <div className="selectedAlbum">
+                <img src={ image } alt={ artistName } className="albumImage" />
+                <div
+                  data-testid="artist-name"
+                  className="selectedArtist"
+                >
+                  {artistName}
+                </div>
+                <div
+                  data-testid="album-name"
+                  className="selectedArtist"
+                >
+                  Álbum -
+                  {albumName}
+                </div>
               </div>
-              <ul>{listMusics}</ul>
+              <div className="allSongs">{listMusics}</div>
             </>
           )}
         </div>

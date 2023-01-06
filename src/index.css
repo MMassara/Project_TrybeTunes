@@ -29,8 +29,12 @@ h1 {
  border: 1px solid #2D4263;
 }
 
-h3 {
+h3, h4 {
   color: #EDE6DB;
+}
+
+h4 {
+  text-align: center;
 }
 
 .loginItems {
@@ -39,6 +43,7 @@ h3 {
   width: 500px;
   height: 500px;
   margin: auto;
+  margin-top: 50px;
 }
 
 #login {
@@ -50,7 +55,6 @@ h3 {
 .buttonLogin {
   width: 250px;
   height: 40px;
-  
 }
 
 .loadingText {
@@ -60,7 +64,7 @@ h3 {
 
 .headerItems {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: #1D5C63;
 }
 
@@ -76,4 +80,96 @@ h3 {
 a {
   text-decoration: none;
   color: #1A132F;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.searchButton {
+  margin-left: 5px;
+  width: 250px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.searchInput {
+  width: 230px;
+  height: 35px;
+}
+
+.allAlbums {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.eachAlbum {
+  border: 3px solid #2D4263;
+  margin: 10px;
+  width: 180px;
+  height: 290px;
+  background-color: #1D5C63;
+}
+
+.centerAlbum {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.centerImage {
+  margin-left: 45px;
+  margin-top: 40px;
+}
+
+.eachSong {
+  border: 3px solid #2D4263;
+  width: 380px;
+  height: 120px;
+  margin: 10px;
+}
+
+.allSongs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.selectedAlbum {
+  display:flex;
+  justify-content: center;
+}
+
+.albumImage {
+  margin-bottom: 25px;
+  margin-top: 25px;
+  width: 150px;
+  height: 150px;
+}
+
+.selectedArtist {
+  margin-top: 75px;
+  margin-left: 50px;
+}
+
+.musicName { 
+  text-align: center;
+  margin: 5px;
+}
+
+.previewSong {
+  margin-left: 40px;
+}
+
+.favoriteInput {
+  margin-left: 150px;
+  margin-top: 10px;
+}
+
+.favoriteSongs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
