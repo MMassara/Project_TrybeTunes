@@ -199,3 +199,7 @@ a {
 .eachInfo {
   margin: 20px;
 }
+
+.descriptionEdit {
+  display: block;
+}

@@ -63,13 +63,13 @@ class ProfileEdit extends React.Component {
     return (
       <>
         <Header />
-        <div data-testid="page-profile-edit">
+        <div data-testid="page-profile-edit" className="showProfile ">
           {loading === true ? (
             <LoadingText />
           ) : (
-            <>
-              <div>
-                <div>
+            <div>
+              <div className="profileInfos">
+                <div className="eachInfo">
                   <label htmlFor="editName">
                     Nome:
                     <input
@@ -80,7 +80,7 @@ class ProfileEdit extends React.Component {
                     />
                   </label>
                 </div>
-                <div>
+                <div className="eachInfo">
                   <label htmlFor="editEmail">
                     Email:
                     <input
@@ -91,14 +91,16 @@ class ProfileEdit extends React.Component {
                     />
                   </label>
                 </div>
-                <div>
+                <div className="eachInfo">
                   <label htmlFor="editDescription">
                     Descrição:
-                    <input
+                    <textarea
                       type="text"
                       value={ description }
                       id="editDescription"
                       onChange={ this.editProfileDescription }
+                      cols="40"
+                      rows="5"
                     />
                   </label>
                 </div>
@@ -107,9 +109,15 @@ class ProfileEdit extends React.Component {
                 data-testid="link-to-search"
                 to="/profile"
               >
-                <button type="button" onClick={ this.saveEdit }>Salvar edição</button>
+                <button
+                  type="button"
+                  onClick={ this.saveEdit }
+                  className="editProfileButton"
+                >
+                  Salvar edição
+                </button>
               </Link>
-            </>
+            </div>
           )}
         </div>
       </>
