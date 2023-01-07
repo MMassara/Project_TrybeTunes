@@ -173,3 +173,29 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.showProfile {
+  display: flex;
+  justify-content: center;
+  margin: 80px;
+}
+
+.editProfileButton {
+  width: 150px;
+  height: 40px;
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #DFD8CA;
+  cursor: pointer;
+}
+
+.profileInfos {
+  border: 3px solid #2D4263;
+  width: 600px;
+  height: 400px;
+  background-color: #DFD8CA;
+}
+
+.eachInfo {
+  margin: 20px;
+}

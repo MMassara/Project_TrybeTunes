@@ -34,7 +34,7 @@ class Profile extends React.Component {
     return (
       <>
         <Header />
-        <div data-testid="page-profile">
+        <div data-testid="page-profile" className="showProfile">
           {loading === true ? (
             <LoadingText />
           ) : (
@@ -43,18 +43,20 @@ class Profile extends React.Component {
                 data-testid="link-to-search"
                 to="/profile/edit"
               >
-                <button type="button">
+                <button type="button" className="editProfileButton">
                   Editar perfil
                 </button>
               </Link>
-              <div>
-                {`Nome: ${name}`}
-              </div>
-              <div>
-                {`Email: ${email}`}
-              </div>
-              <div>
-                {`Descrição: ${description}`}
+              <div className="profileInfos">
+                <div className="eachInfo">
+                  {`Nome: ${name}`}
+                </div>
+                <div className="eachInfo">
+                  {`Email: ${email}`}
+                </div>
+                <div className="eachInfo">
+                  {`Descrição: ${description}`}
+                </div>
               </div>
             </div>
           )}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
 import LoadingText from '../Components/LoadingText';
-import { updateUser } from '../services/userAPI';
+import { updateUser, getUser } from '../services/userAPI';
 
 class ProfileEdit extends React.Component {
   state = {
@@ -16,6 +16,30 @@ class ProfileEdit extends React.Component {
     this.showUser();
   }
 
+  editProfileName = (event) => {
+    const { target } = event;
+    const { value } = target;
+    this.setState({
+      name: value,
+    });
+  };
+
+  editProfileEmail = (event) => {
+    const { target } = event;
+    const { value } = target;
+    this.setState({
+      email: value,
+    });
+  };
+
+  editProfileDescription = (event) => {
+    const { target } = event;
+    const { value } = target;
+    this.setState({
+      description: value,
+    });
+  };
+
   showUser = async () => {
     this.setState({
       loading: true,
@@ -23,8 +47,15 @@ class ProfileEdit extends React.Component {
     const user = await getUser();
     this.setState({
       name: user.name,
+      email: user.email,
+      description: user.description,
       loading: false,
     });
+  };
+
+  saveEdit = async () => {
+    const { name, email, description } = this.state;
+    await updateUser({ name, email, description });
   };
 
   render() {
@@ -33,35 +64,50 @@ class ProfileEdit extends React.Component {
       <>
         <Header />
         <div data-testid="page-profile-edit">
-          {loading === false ? (
+          {loading === true ? (
             <LoadingText />
           ) : (
             <>
               <div>
                 <div>
-                  <label htmlFor="">
+                  <label htmlFor="editName">
                     Nome:
+                    <input
+                      type="text"
+                      value={ name }
+                      id="editName"
+                      onChange={ this.editProfileName }
+                    />
                   </label>
-                  <input type="text" value={ name } />
                 </div>
                 <div>
-                  <label htmlFor="">
+                  <label htmlFor="editEmail">
                     Email:
+                    <input
+                      type="text"
+                      value={ email }
+                      id="editEmail"
+                      onChange={ this.editProfileEmail }
+                    />
                   </label>
-                  <input type="text" value={ email } />
                 </div>
                 <div>
-                  <label htmlFor="">
+                  <label htmlFor="editDescription">
                     Descrição:
+                    <input
+                      type="text"
+                      value={ description }
+                      id="editDescription"
+                      onChange={ this.editProfileDescription }
+                    />
                   </label>
-                  <input type="text" value={ description } />
                 </div>
               </div>
               <Link
                 data-testid="link-to-search"
                 to="/profile"
               >
-                <button type="button">Salvar edição</button>
+                <button type="button" onClick={ this.saveEdit }>Salvar edição</button>
               </Link>
             </>
           )}
