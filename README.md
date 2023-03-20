@@ -1,10 +1,3 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+  Nesse projeto foi desenvolvido uma aplicação de reprodução musical de diversos artistas, sendo possível criar uma lista de músicas favoritas e editar o perfil da pessoa usuária logada. Sendo assim, na aplicação é possível fazer login, pesquisar por bandas/artistas, listar os álbums dos artistas pesquisados, reproduzir uma prévia das músicas no álbum, favoritar e desfavoritar músicas, ver a lista de músicas favoritas, ver e editar o perfil da pessoa logada.
+  
+  As habilidades desenvolvidas ao longo do projeto foram: Fazer requisições e consumir dados da API do iTunes; Utilizar os ciclos de vida de componentes React; Apliação de renderização condicional; Utilizar o componente BrowserRouter corretamente; Criar rotas, mapeando o caminho da URL com o componente correspondente, via Route; Utilizar o Switch do React Router; Criar links de navegação na aplicação com o componente Link.
